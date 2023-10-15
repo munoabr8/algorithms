@@ -19,7 +19,7 @@ jobs:
         cache: maven
       
     - name: Build with Maven
-      run: mvn clean install
+      run: mvn clean install -f root/pom.xml
 
     - name: Decompile Class
       run: javap -c target/classes/divideAndConquer/QuickSort.class
