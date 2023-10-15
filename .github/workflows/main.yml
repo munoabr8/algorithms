@@ -20,7 +20,6 @@ jobs:
       
     - name: Build with Maven
       run: mvn clean install -f root/pom.xml
-    - name: Include path
-      run: mvn build-helper:parse-include-path -Dexec.executable=echo -Dexec.args=\${project.build.outputDirectory}
+ 
     - name: Decompile Class
-      run: javap -c QuickSort.class
+      run: javap -c /root/sorting/target/classes/divideAndConquer/QuickSort
