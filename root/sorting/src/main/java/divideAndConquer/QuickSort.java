@@ -5,11 +5,11 @@ import java.util.Arrays;
 public class QuickSort {
 
 	private static int[] sortMe;
-
-	public QuickSort(int[] array) {
+ 
+	public QuickSort(final int[] array) {
 
 		sortMe = array;
-
+	 
 	}
 
 	public static void main(String[] args) {
@@ -21,26 +21,24 @@ public class QuickSort {
 	}
 
 	public void sort() {
-
-		quickSort();
+		
+		int low = 0;
+		int high = sortMe.length - 1;
+		quickSort(low, high);
 
 		display();
 
 	}
 
-	void display() {
 
-		System.out.println("Sorted Array: " + Arrays.toString(sortMe));
-
-	}
-
-	public static void quickSort() {
-		quickSort(0, sortMe.length - 1);
-	}
-
+ 
 	public static void quickSort(int low, int high) {
+		
+		
+		
 		if (low < high) {
 			int pivotIndex = partition(low, high);
+			
 			quickSort(low, pivotIndex - 1);
 			quickSort(pivotIndex + 1, high);
 		}
@@ -64,4 +62,12 @@ public class QuickSort {
 		sortMe[i] = sortMe[j];
 		sortMe[j] = temp;
 	}
+	
+	
+	private void display() {
+
+		System.out.println("Sorted Array: " + Arrays.toString(sortMe));
+
+	}
+
 }
