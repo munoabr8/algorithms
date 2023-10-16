@@ -47,9 +47,9 @@ public class QuickSort {
  
 	public  void quickSort(int low, int high) {
 		
-		assert  high <= sortMe.length - 1;
+		//assert  high <= sortMe.length - 1;
 	
-		assert 0 <= low;
+		//assert 0 <= low;
 		
 		if (low < high) {
 			int pivotIndex = partition(low, high);
@@ -64,31 +64,36 @@ public class QuickSort {
 	 * the number of elements in the array.
 	 */
 	public  int partition(int low, int high) {
-	 
+		//assert  0 <= high;
+		//assert  high <= sortMe.length - 1;
+		
+		//assert 0 <= low;
+		//assert low <= high;
+
 
  		int pivot = sortMe[high];
  		
-		/*
-		 * constraints: -1 <= i;
-		 */
+		 
 		int i = low - 1;
-		//System.out.println("i is: "+ i);
-
-		/*
-		 * Loop invariants:
-		 * j is always 0 <= j < sortMe.length - 1
-		 * 
-		 */
 		
-		//System.out.println("high is: "+ high);
+		//assert -1 <= i;
+		//assert i <= high;
 
+		
 		for (int j = low; j < high; j++) {
- 
-			if (sortMe[j] < pivot) {
+			
+			//assert 0 <= j;
+			//assert j < sortMe.length -1;
+
+			if (sortMe[j] < pivot  ) {
 				i++;
+				
+ 				assert i <= j;
 				swap(i, j);
 			}
 		}
+		
+ 
 		swap(i + 1, high);
 		return i + 1;
 	}
